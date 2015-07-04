@@ -14,6 +14,31 @@ namespace InFlightFlagSwitcher
         {
             //GameEvents.onGUIApplicationLauncherReady.Add(onGUIApplicationLauncherReady);
             onGUIApplicationLauncherReady(); // AppLauncher is always ready by the time the player is in the flight scene
+            GameEvents.onCrewOnEva.Add(onCrewOnEVA);
+            GameEvents.onCrewBoardVessel.Add(onCrewBoardVessel);
+            GameEvents.onVesselChange.Add(onVesselChange);
+        }
+
+        private void onVesselChange(Vessel data)
+        {
+            if (data.isEVA)
+                this.button.Disable();
+            else
+                this.button.Enable();
+
+        }
+
+        private void onCrewBoardVessel(GameEvents.FromToAction<Part, Part> data)
+        {
+            if (!this.button.enabled)
+                this.button.Enable();
+        }
+
+        private void onCrewOnEVA(GameEvents.FromToAction<Part, Part> data)
+        {
+            if (this.button.enabled)
+                this.button.Disable();
+
         }
 
         public Texture getCurrentFlag()
