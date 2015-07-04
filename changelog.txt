@@ -1,0 +1,6 @@
+﻿04/07/15, v1.0-dev2:
+	* No longer allows changing of flags while controlling Kerbals.
+	* Button will now remain visible while in map view.
+
+03/07/15, v1.0-dev1:
+	* Initial private release.
