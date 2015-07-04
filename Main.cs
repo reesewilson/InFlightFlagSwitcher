@@ -49,7 +49,7 @@ namespace InFlightFlagSwitcher
 
         public void onGUIApplicationLauncherReady() 
         {
-            this.button = ApplicationLauncher.Instance.AddModApplication(doStuff, dontDoStuff, null, null, null, null, ApplicationLauncher.AppScenes.FLIGHT, getCurrentFlag());
+            this.button = ApplicationLauncher.Instance.AddModApplication(doStuff, dontDoStuff, null, null, null, null, ApplicationLauncher.AppScenes.FLIGHT | ApplicationLauncher.AppScenes.MAPVIEW, getCurrentFlag());
         }
 
         public void doStuff()
