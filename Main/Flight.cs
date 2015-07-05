@@ -1,14 +1,18 @@
 ﻿using System;
 using UnityEngine;
+using InFlightFlagSwitcher.Utilities;
+using InFlightFlagSwitcher.Module;
 
-namespace InFlightFlagSwitcher
+namespace InFlightFlagSwitcher.Main
 {
     [KSPAddon(KSPAddon.Startup.Flight, true)]
-    public class Main : MonoBehaviour
+    public class Flight : MonoBehaviour
     {
 
         private ApplicationLauncherButton button;
         private FlagBrowser flagBrowser;
+
+        public static Flight Instance { get; protected set; }
 
         public void Start()
         {
@@ -17,6 +21,9 @@ namespace InFlightFlagSwitcher
             GameEvents.onCrewOnEva.Add(onCrewOnEVA);
             GameEvents.onCrewBoardVessel.Add(onCrewBoardVessel);
             GameEvents.onVesselChange.Add(onVesselChange);
+            //GameEvents.onFlagSelect.Add(onFlagSelect);
+            if (Instance == null)
+                Instance = this;
         }
 
         private void onVesselChange(Vessel data)
@@ -25,6 +32,7 @@ namespace InFlightFlagSwitcher
                 this.button.Disable();
             else
                 this.button.Enable();
+            updateButtonTexture();
 
         }
 
@@ -41,15 +49,15 @@ namespace InFlightFlagSwitcher
 
         }
 
-        public Texture getCurrentFlag()
+        public void updateButtonTexture()
         {
-            return GameDatabase.Instance.GetTexture(FlightGlobals.fetch.activeVessel.rootPart.flagURL, false);
+            this.button.SetTexture(Utils.getCurrentFlag());
         }
 
 
         public void onGUIApplicationLauncherReady() 
         {
-            this.button = ApplicationLauncher.Instance.AddModApplication(doStuff, dontDoStuff, null, null, null, null, ApplicationLauncher.AppScenes.FLIGHT | ApplicationLauncher.AppScenes.MAPVIEW, getCurrentFlag());
+            this.button = ApplicationLauncher.Instance.AddModApplication(doStuff, dontDoStuff, null, null, null, null, ApplicationLauncher.AppScenes.FLIGHT | ApplicationLauncher.AppScenes.MAPVIEW, Utils.getCurrentFlag());
         }
 
         public void doStuff()
@@ -58,13 +66,10 @@ namespace InFlightFlagSwitcher
             button.SetTrue(false);
 
             /* 
-             * Can't lie, I didn't find this myself. Google is a great and powerful tool.
+             * Credit to Mihara for their code on how to get the FlagBrowser prefab.
              * https://github.com/Mihara/PartUtilities/blob/bcbd90522a1117fbd04a361d1544fc3612d6ffe3/PartUtilities/UtilityFunctions.cs#L28-L41
-             * 
              */
-            this.flagBrowser = (UnityEngine.Object.Instantiate((UnityEngine.Object)(new FlagBrowserGUIButton(null, null, null, null)).FlagBrowserPrefab) as GameObject).GetComponent<FlagBrowser>();
-            this.flagBrowser.OnFlagSelected += OnFlagSelected;
-            this.flagBrowser.OnDismiss += OnFlagBrowserDismiss;
+            this.flagBrowser = Utils.getFlagBrowser(OnFlagSelected, OnFlagBrowserDismiss);
         }
 
         private void OnFlagBrowserDismiss()
@@ -74,21 +79,9 @@ namespace InFlightFlagSwitcher
 
         private void OnFlagSelected(FlagBrowser.FlagEntry selected)
         {
-            Vessel v = FlightGlobals.fetch.activeVessel;
-            foreach (Part p in v.parts)
-            {
 
-                p.flagURL = selected.textureInfo.name;
-
-                FlagDecal fd = (FlagDecal)p.Modules["FlagDecal"];
-                if (fd != null)
-                {
-                    fd.UpdateFlagTexture();
-                }
-
-            }
-
-            this.button.SetTexture((Texture)selected.textureInfo.texture);
+            Utils.applyFlagToVessel(FlightGlobals.fetch.activeVessel, selected);
+            updateButtonTexture();
             this.button.SetFalse(false);
 
         }
@@ -102,6 +95,11 @@ namespace InFlightFlagSwitcher
         private void Log(string text, params object[] args)
         {
             Debug.Log(String.Format(text, args));
+        }
+
+        public void onFlagSelect(string flag)
+        {
+
         }
     }
 }

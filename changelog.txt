@@ -1,4 +1,9 @@
-﻿04/07/15, v1.0-dev2:
+﻿05/07/15, v1.0-dev3:
+	* Fixed toolbar button not updating to the flag of other vessels when they're switched to
+	* Pre-release code refactoring!
+	* Can now toggle flag on a part-by-part basis (Right click the part you want to switch and hit "Change Flag")
+
+04/07/15, v1.0-dev2:
 	* No longer allows changing of flags while controlling Kerbals.
 	* Button will now remain visible while in map view.
 
