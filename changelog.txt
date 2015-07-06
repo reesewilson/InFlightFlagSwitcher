@@ -1,4 +1,7 @@
-﻿05/07/15, v1.0-dev3:
+﻿06/07/2015, v1.0:
+	* Initial public release!
+
+05/07/15, v1.0-dev3:
 	* Fixed toolbar button not updating to the flag of other vessels when they're switched to
 	* Pre-release code refactoring!
 	* Can now toggle flag on a part-by-part basis (Right click the part you want to switch and hit "Change Flag")
