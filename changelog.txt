@@ -1,4 +1,7 @@
-﻿06/07/2015, v1.0:
+﻿09/11/15, v1.0.1:
+	* Recompiled against KSP 1.0.5 binaries
+
+06/07/15, v1.0:
 	* Initial public release!
 
 05/07/15, v1.0-dev3:
