@@ -35,15 +35,19 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="KSPCore">
-      <HintPath>H:\KSP Experimentals\Build 1138 (1.1)\KSP_Data\Managed\KSPCore.dll</HintPath>
+      <HintPath>H:\Steam\SteamApps\common\Kerbal Space Program\KSP_Data\Managed\KSPCore.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="KSPUtil">
-      <HintPath>H:\KSP Experimentals\Build 1138 (1.1)\KSP_Data\Managed\KSPUtil.dll</HintPath>
+      <HintPath>H:\Steam\SteamApps\common\Kerbal Space Program\KSP_Data\Managed\KSPUtil.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="UnityEngine">
       <HintPath>H:\Steam\SteamApps\common\Kerbal Space Program\KSP_Data\Managed\UnityEngine.dll</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>H:\Steam\SteamApps\common\Kerbal Space Program\KSP_Data\Managed\UnityEngine.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace InFlightFlagSwitcher.Main
 {
@@ -26,14 +27,13 @@ namespace InFlightFlagSwitcher.Main
                 Instance = this;
             if (!registeredEvents)
             {
-                /*GameEvents.onGUIEditorToolbarReady.Add(() => */EditorLogic.fetch.launchBtn.AddValueChangedDelegate(onEditorLaunchButtonClick)/*)*/;
+                EditorLogic.fetch.launchBtn.onClick.AddListener(onEditorLaunchButtonClick);
                 registeredEvents = true;
             }
         }
 
-        public void onEditorLaunchButtonClick(IUIObject obj)
+        public void onEditorLaunchButtonClick()
         {
-            Utils.Log("Boop!");
             foreach (Part p in EditorLogic.fetch.ship.parts)
             {
                 IFFSFlagSwitchModule fsm = (IFFSFlagSwitchModule)p.Modules["IFFSFlagSwitchModule"];

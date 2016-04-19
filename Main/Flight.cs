@@ -2,6 +2,7 @@
 using UnityEngine;
 using InFlightFlagSwitcher.Utilities;
 using InFlightFlagSwitcher.Module;
+using KSP.UI.Screens;
 
 namespace InFlightFlagSwitcher.Main
 {
