@@ -1,0 +1,5 @@
+C:\Users\Reese Wilson\Downloads\InFlightFlagSwitcher-master\InFlightFlagSwitcher-master\bin\Release\InFlightFlagSwitcher.dll
+C:\Users\Reese Wilson\Downloads\InFlightFlagSwitcher-master\InFlightFlagSwitcher-master\bin\Release\InFlightFlagSwitcher.pdb
+C:\Users\Reese Wilson\Downloads\InFlightFlagSwitcher-master\InFlightFlagSwitcher-master\bin\Release\UnityEngine.UI.dll
+C:\Users\Reese Wilson\Downloads\InFlightFlagSwitcher-master\InFlightFlagSwitcher-master\obj\Release\InFlightFlagSwitcher.dll
+C:\Users\Reese Wilson\Downloads\InFlightFlagSwitcher-master\InFlightFlagSwitcher-master\obj\Release\InFlightFlagSwitcher.pdb

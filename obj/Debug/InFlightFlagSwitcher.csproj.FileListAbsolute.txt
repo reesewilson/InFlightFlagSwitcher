@@ -1,0 +1,6 @@
+C:\Users\Reese Wilson\Downloads\InFlightFlagSwitcher-master\InFlightFlagSwitcher-master\bin\Debug\InFlightFlagSwitcher.dll
+C:\Users\Reese Wilson\Downloads\InFlightFlagSwitcher-master\InFlightFlagSwitcher-master\bin\Debug\InFlightFlagSwitcher.pdb
+C:\Users\Reese Wilson\Downloads\InFlightFlagSwitcher-master\InFlightFlagSwitcher-master\bin\Debug\UnityEngine.UI.dll
+C:\Users\Reese Wilson\Downloads\InFlightFlagSwitcher-master\InFlightFlagSwitcher-master\obj\Debug\InFlightFlagSwitcher.csprojResolveAssemblyReference.cache
+C:\Users\Reese Wilson\Downloads\InFlightFlagSwitcher-master\InFlightFlagSwitcher-master\obj\Debug\InFlightFlagSwitcher.dll
+C:\Users\Reese Wilson\Downloads\InFlightFlagSwitcher-master\InFlightFlagSwitcher-master\obj\Debug\InFlightFlagSwitcher.pdb
